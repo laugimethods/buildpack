@@ -17,7 +17,9 @@ echo "compile_cache_dir: $compile_cache_dir"
 echo "compile_buildpack_bin: $compile_buildpack_bin"
 echo "compile_buildpack_dir: $compile_buildpack_dir"
 
-yum -y install java-1.7.0-openjdk-devel && yum clean all
-export JAVA_HOME=/usr/lib/jvm/java
+compgen -c
 
-java --version
+#yum -y install java-1.7.0-openjdk-devel && yum clean all
+#export JAVA_HOME=/usr/lib/jvm/java
+
+#java --version
