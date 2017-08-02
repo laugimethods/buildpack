@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+shopt -s dotglob
+set -e
+
+# ------------------------------------------------------------------------------------------------
+
+compile_build_dir=$1
+compile_cache_dir=$2
+compile_buildpack_dir=$(cd $(dirname $0) && cd .. && pwd)
+compile_buildpack_bin=$compile_buildpack_dir/bin
+
