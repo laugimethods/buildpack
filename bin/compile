@@ -16,9 +16,8 @@ echo "compile_cache_dir: $compile_cache_dir"
 echo "compile_buildpack_bin: $compile_buildpack_bin"
 echo "compile_buildpack_dir: $compile_buildpack_dir"
 
-cd /opt/
-wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u21-b11/jdk-7u21-linux-x64.tar.gz"
-tar xzf jdk-7u21-linux-x64.tar.gz
+# https://cloud.gov/docs/apps/experimental/custom-buildpacks/#apt-buildpack
+apt-buildpack
 
 java -version
 javac -version
