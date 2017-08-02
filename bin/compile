@@ -17,9 +17,10 @@ echo "compile_cache_dir: $compile_cache_dir"
 echo "compile_buildpack_bin: $compile_buildpack_bin"
 echo "compile_buildpack_dir: $compile_buildpack_dir"
 
-compgen -c
+# https://stackoverflow.com/questions/16263556/installing-java-7-on-ubuntu
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java7-set-default
 
-#yum -y install java-1.7.0-openjdk-devel && yum clean all
-#export JAVA_HOME=/usr/lib/jvm/java
-
-#java --version
+java -version
+javac -version
