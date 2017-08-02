@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
-shopt -s dotglob
 set -e
 
 # ------------------------------------------------------------------------------------------------
@@ -18,7 +17,7 @@ echo "compile_buildpack_bin: $compile_buildpack_bin"
 echo "compile_buildpack_dir: $compile_buildpack_dir"
 
 # https://stackoverflow.com/questions/16263556/installing-java-7-on-ubuntu
-apt-get update
+# apt-get update
 apt-get install openjdk-7-jdk
 
 java -version
