@@ -16,8 +16,21 @@ echo "compile_cache_dir: $compile_cache_dir"
 echo "compile_buildpack_bin: $compile_buildpack_bin"
 echo "compile_buildpack_dir: $compile_buildpack_dir"
 
-# https://cloud.gov/docs/apps/experimental/custom-buildpacks/#apt-buildpack
-apt-buildpack
+# https://github.com/ddollar/heroku-buildpack-apt/blob/master/bin/compile#L44
+APT_CACHE_DIR="$CACHE_DIR/apt/cache"
+APT_STATE_DIR="$CACHE_DIR/apt/state"
+
+mkdir -p "$APT_CACHE_DIR/archives/partial"
+mkdir -p "$APT_STATE_DIR/lists/partial"
+
+APT_OPTIONS="-o debug::nolocking=true -o dir::cache=$APT_CACHE_DIR -o dir::state=$APT_STATE_DIR"
+
+topic "Updating apt caches"
+apt-get $APT_OPTIONS update | indent
+
+echo "passed"
+
+apt-get install openjdk-7-jdk
 
 java -version
 javac -version
